@@ -1,0 +1,27 @@
+{
+  "name": "mirrorview",
+  "version": "1.0.0",
+  "description": "Template engine that works like PHP, to display data in HTML use <?js writeToDocument = 'Example' ?>",
+  "main": "MirrorView.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emanuele-toma/MirrorView.git"
+  },
+  "keywords": [
+    "Template",
+    "Engine",
+    "Javascript"
+  ],
+  "author": "bhz_ema",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/emanuele-toma/MirrorView/issues"
+  },
+  "homepage": "https://github.com/emanuele-toma/MirrorView#readme",
+  "dependencies": {
+    "vm": "^0.1.0"
+  }
+}
