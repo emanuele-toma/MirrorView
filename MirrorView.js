@@ -6,6 +6,7 @@ const vm = require('vm');
  * @param {string} rawHTML - The HTML string containing the embedded JavaScript code.
  * @returns {string} The modified HTML string with the embedded code executed and replaced with the output.
  */
+
 function executeJS(context, rawHTML) {
   // Create a new context using the `vm` module's `createContext` function
   vm.createContext(context);
@@ -23,6 +24,7 @@ function executeJS(context, rawHTML) {
       // If the context has a property `writeToDocument`, replace the JavaScript code with its value
       if (context.writeToDocument) {
           rawHTML = rawHTML.replace(rawJSCode[index], context.writeToDocument);
+          delete context.writeToDocument;
       }
   });
 
