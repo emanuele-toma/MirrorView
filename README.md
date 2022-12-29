@@ -81,9 +81,6 @@ This code will output the following HTML string:
 </html>
 ```
 
-
-```
-
 ## Limitations
 
 There are a few limitations to be aware of when using MirrorView:
@@ -91,7 +88,8 @@ There are a few limitations to be aware of when using MirrorView:
 * Only JavaScript code embedded within <?js and ?> tags will be executed.
 * The context object must be a plain JavaScript object. It cannot be a class or function, though it can include functions.
 * The executeJS function does not provide any way to catch or handle errors that may occur while executing the embedded code. If an error occurs, it will be thrown and may crash the program.
-* The writeToDocument variable must be declared either with var or const, if you declare it with let it won't print into HTML
+* The writeToDocument variable must be declared either with var or const, if you declare it with let it won't print into HTML.
+* The writeToDocument variable must be declared only once per block, the value at the end of the block is the value that is printed.
 
 ## License
 
