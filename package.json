@@ -1,6 +1,6 @@
 {
   "name": "mirrorview",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Template engine that works like PHP, to display data in HTML use <?js writeToDocument = 'Example' ?>",
   "main": "MirrorView.js",
   "scripts": {
