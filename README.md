@@ -24,14 +24,14 @@ let context = {};
 html = mirrorview.executeJS(context, html);
 ```
 
-The executeJS function takes two arguments: a context object and an HTML string. The context object can be used to provide variables or functions that the embedded JavaScript code can use. Any output produced by the code will be written to the writeToDocument property of the context object. This property will then be used to replace the embedded JavaScript code in the HTML string.
+The executeJS function takes two arguments: a context object and an HTML string. The context object can be used to provide variables or functions that the embedded JavaScript code can use. To output values in the HTML string you can use the echo function, it takes a string as a parameter.
 
 For example, the following HTML string will output "2":
 
 ```html
 <html>
   <body>
-    <h1><?js let writeToDocument = 1 + 1; ?></h1>
+    <h1><?js echo(1 + 1); ?></h1>
   </body>
 </html>
 ```
@@ -45,12 +45,11 @@ let html = `
   <html>
     <body>
       <h1><?js "Hello, world!" ?></h1>
-      <p><?js var writeToDocument = "Today is " + new Date().toLocaleDateString(); ?></p>
+      <p><?js echo("Today is " + new Date().toLocaleDateString()); ?></p>
       <ul>
         <?js
-          var writeToDocument = '';
           for (let i = 1; i <= 5; i++) {
-            writeToDocument += '<li>Item ' + i + '</li>';
+            echo('<li>Item ' + i + '</li>');
           }
         ?>
       </ul>
@@ -86,10 +85,8 @@ This code will output the following HTML string:
 There are a few limitations to be aware of when using MirrorView:
 
 * Only JavaScript code embedded within <?js and ?> tags will be executed.
-* The context object must be a plain JavaScript object. It cannot be a class or function, though it can include functions.
+* The context object must be a plain JavaScript object. It cannot be a class or function, though it can include class or functions.
 * The executeJS function does not provide any way to catch or handle errors that may occur while executing the embedded code. If an error occurs, it will be thrown and may crash the program.
-* The writeToDocument variable must be declared either with var or const, if you declare it with let it won't print into HTML.
-* The writeToDocument variable must be declared only once per block, the value at the end of the block is the value that is printed.
 
 ## License
 
