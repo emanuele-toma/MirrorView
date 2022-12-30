@@ -47,15 +47,19 @@ function executeJS(context, rawHTML) {
 }
 
 /**
- * Prints the text provided in the HTML
- * @param {string} text - A string that will be printed inside the HTML render
- * @returns {void}
+ * Writes the provided text to some kind of document or output.
+ * @param {...string} text - The text to be written. Multiple arguments can be passed and they will be joined together.
  */
 
-function echo(text) {
+function echo(...text) {
+  // Join all of the arguments into a single string
+  text = text.join();
+
+  // Initialize the __writeToDocument variable if it has not been defined
   if (!__writeToDocument)
       __writeToDocument = '';
 
+  // Append the text to the __writeToDocument variable
   __writeToDocument += text;
 }
 
