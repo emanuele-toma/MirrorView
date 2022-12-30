@@ -10,7 +10,6 @@ To install MirrorView, use npm:
 npm install mirrorview
 ```
 
-
 ## Usage
 
 To use MirrorView in your Node.js program, require the module and call the `executeJS` function:

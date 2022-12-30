@@ -53,9 +53,6 @@ function executeJS(context, rawHTML) {
  */
 
 function echo(text) {
-  if (__writeToDocument)
-      __writeToDocument += '\n';
-
   if (!__writeToDocument)
       __writeToDocument = '';
 
