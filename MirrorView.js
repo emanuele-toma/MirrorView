@@ -14,6 +14,9 @@ function executeJS(context, rawHTML) {
   // Extract any JavaScript code embedded within the raw HTML using a regular expression
   var rawJSCode = rawHTML.match(/<\?js([\s\S]*?)\?>/g);
 
+  // If there is no JavaScript code embedded within the raw HTML, return the raw HTML
+  if (!rawJSCode) return rawHTML;
+
   // Process the code by adding a semicolon at the end of each line and joining the lines together
   jsCode = rawJSCode.map(code => code.replace(/<\?js/g, '').replace(/\?>/g, '').split('\n').map(line => line.endsWith(';') ? line : line + ';').join('\n'));
 
